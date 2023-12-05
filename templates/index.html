@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Media Downloader</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Media Downloader</h1>
+        <form action="/download" method="post" id="downloadForm">
+            <input type="text" name="url" id="urlInput" placeholder="Paste YouTube, Instagram, or Facebook URL"
+                required><br><br>
+            <img src="" id="thumbnailPreview" alt="Thumbnail Preview" style="display:none;"><br><br>
+            <label for="resolution">Select Resolution:</label>
+            <select name="resolution" id="resolution">
+                <option value="360">360p</option>
+                <option value="720">720p</option>
+                <option value="1080">1080p</option>
+                <option value="1440">2K</option>
+                <option value="2160">4K</option>
+                <option value="4320">8K</option>
+            </select><br><br>
+            <input type="checkbox" id="audio" name="audio">
+            <label for="audio">Download Audio Only</label><br><br>
+            <input type="submit" value="Download" id="downloadButton">
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <ul>
+                {% for message in messages %}
+                <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            {% endwith %}
+
+        </form>
+    </div>
+</body>
+
+</html>

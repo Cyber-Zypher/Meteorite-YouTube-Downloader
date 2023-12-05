@@ -46,14 +46,14 @@ input[type="submit"] {
     margin-top: 15px;
     border: none;
     border-radius: 5px;
-    background-color: #4CAF50;
+    background-color: #4b45a0;
     color: white;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 input[type="submit"]:hover {
-    background-color: #4b45a0;
+    background-color: rgb(75, 69, 160);
 }
 
 #downloadText {
